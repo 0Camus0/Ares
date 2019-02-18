@@ -29,9 +29,9 @@ namespace Ares {
 
 	class RootFramework {
 	public:
-		RootFramework(AppBase *pApp) : pBaseApp(pApp) {}
+		RootFramework(AppBase *pApp, ApplicationDesc Desc) : pBaseApp(pApp), AplicationDescriptor(Desc) {}
 		virtual void InitGlobalVars() = 0;
-		virtual void OnCreateApplication(ApplicationDesc desc) = 0;
+		virtual void OnCreateApplication() = 0;
 		virtual void OnDestroyApplication() = 0;
 		virtual void OnInterruptApplication() = 0;
 		virtual void OnResumeApplication() = 0;

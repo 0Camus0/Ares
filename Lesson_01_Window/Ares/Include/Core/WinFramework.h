@@ -6,12 +6,12 @@
 namespace Ares {
 	class WinFramework : public RootFramework {
 	public:
-		WinFramework(AppBase *pBaseApp) : RootFramework(pBaseApp), m_alive(true) {
+		WinFramework(AppBase *pBaseApp, ApplicationDesc Desc) : RootFramework(pBaseApp, Desc), m_alive(true) {
 			pBaseApp->SetParentFramework(this);
 			bInitialized = false;
 		}
 		void InitGlobalVars();
-		void OnCreateApplication(ApplicationDesc desc);
+		void OnCreateApplication();
 		void OnDestroyApplication();
 		void OnInterruptApplication();
 		void OnResumeApplication();
