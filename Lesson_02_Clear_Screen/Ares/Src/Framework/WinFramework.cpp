@@ -44,8 +44,23 @@ namespace Ares {
 		pBaseApp->CreateAssets();
 	}
 
+	void WinFramework::SwitchAPI(GraphicsApi_::E api) {
+		if (AplicationDescriptor.GraphicsApi == api)
+			return;
+
+		OnDestroyApplication();
+
+		AplicationDescriptor.GraphicsApi = api;
+		
+		OnCreateApplication();
+	}
+
 	void WinFramework::OnDestroyApplication() {
 		pBaseApp->DestroyAssets();
+		pBaseDriver->DestroyDriver();
+		delete pBaseDriver;
+		pBaseDriver = NULL;
+		SDL_Quit();
 	}
 
 	void WinFramework::OnInterruptApplication() {
@@ -71,6 +86,14 @@ namespace Ares {
 		while (SDL_PollEvent(&evento)) {
 			if (evento.key.keysym.sym == SDLK_q) {
 				m_alive = false;
+			}
+
+			if (evento.key.keysym.sym == SDLK_o) {	
+				SwitchAPI(Ares::GraphicsApi_::E::OPENGL);
+			}
+
+			if (evento.key.keysym.sym == SDLK_d) {
+				SwitchAPI(Ares::GraphicsApi_::E::D3D11);
 			}
 		}
 	}

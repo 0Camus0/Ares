@@ -40,6 +40,7 @@ namespace Ares {
 		virtual void ProcessInput() = 0;
 		virtual void ResetApplication() = 0;
 		virtual void Run() = 0;
+		virtual void SwitchAPI(GraphicsApi_::E) = 0;
 
 		AppBase			*pBaseApp;
 		BaseDriver		*pBaseDriver;

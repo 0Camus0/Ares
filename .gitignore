@@ -1,0 +1,4 @@
+*.opendb
+*.db-shm
+*.db-wal
+/Lesson_01_Window/Lib/Debug/Win32/Ares.lib

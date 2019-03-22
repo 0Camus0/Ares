@@ -12,8 +12,9 @@ namespace Ares {
 
 	namespace GraphicsApi_ {
 		enum E {
-			OPENGL,
-			D3D11
+			OPENGL = 0,
+			D3D11,
+			MAX_GRAPHICS_API
 		};
 	}
 

@@ -6,9 +6,6 @@ namespace Ares {
 		if (GLEW_OK != err) {
 			printf("Error: %s\n", glewGetErrorString(err));
 		}
-		else {
-			printf("GLEW OK\n");
-		}
 		SDL_Surface *sur = SDL_GetVideoSurface();
 		BBWidth = sur->w;
 		BBHeight = sur->h;
@@ -27,7 +24,7 @@ namespace Ares {
 	}
 
 	void	 GLDriver::DestroyDriver() {
-
+		
 	}
 
 	void	 GLDriver::SetWindow(void *window) {

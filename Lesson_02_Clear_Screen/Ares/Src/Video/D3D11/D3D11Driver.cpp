@@ -94,7 +94,11 @@ namespace Ares {
 	}
 
 	void	 D3D11Driver::DestroyDriver() {
+		D3D11DeviceContext->OMSetRenderTargets(0, 0, 0);
+		D3D11DeviceContext->Flush();
 
+		D3D11RenderTargetView.Reset();
+		D3D11DepthStencilTargetView.Reset();
 	}
 
 	void	 D3D11Driver::SetWindow(void *window) {

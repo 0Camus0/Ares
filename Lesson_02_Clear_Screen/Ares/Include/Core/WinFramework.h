@@ -19,6 +19,7 @@ namespace Ares {
 		void ProcessInput();
 		void ResetApplication();
 		void Run();
+		void SwitchAPI(GraphicsApi_::E api);
 
 		~WinFramework() {	}
 
