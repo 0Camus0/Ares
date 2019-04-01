@@ -36,6 +36,12 @@
     <Filter Include="Source Files\Video\GL">
       <UniqueIdentifier>{fa811b31-5741-4b62-9eb1-afd0541f8733}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{0914a9b4-81d4-4460-98f0-1dc332e6b505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{a586570b-2321-4579-9da0-c478b0e99b80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Core\Core.h">
@@ -59,6 +65,9 @@
     <ClInclude Include="Include\Video\D3D11\D3D11Driver.h">
       <Filter>Header Files\Video\D3D11</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Util\Log.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Core\Core.cpp">
@@ -72,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="Src\Video\GL\GLDriver.cpp">
       <Filter>Source Files\Video\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Util\Log.cpp">
+      <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

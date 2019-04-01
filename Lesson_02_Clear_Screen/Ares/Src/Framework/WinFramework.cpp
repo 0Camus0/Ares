@@ -4,6 +4,9 @@
 #include <Video/D3D11/D3D11Driver.h>
 #include <Video/GL/GLDriver.h>
 
+#include <Util/Log.h>
+#include <string>
+
 namespace Ares {
 
 	void WinFramework::InitGlobalVars() {
@@ -13,11 +16,18 @@ namespace Ares {
 	void WinFramework::OnCreateApplication() {
 
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-			printf("Video initialization failed: %s\n", SDL_GetError());
+			LogPrintError("Video initialization failed: %s", SDL_GetError());
 			exit(1);
 		}
+		else {
+			LogPrintRelease("SDL Init Completed with Success!");
+		}
 
-		SDL_WM_SetCaption("Ares", 0);
+		std::string  Title = "Ares [";
+		Title += (AplicationDescriptor.GraphicsApi == Ares::GraphicsApi_::OPENGL) ? "GL" : "D3D11";
+		Title += "]";
+
+		SDL_WM_SetCaption(Title.c_str(), 0);
 
 		int flags = SDL_HWSURFACE;
 
@@ -26,14 +36,17 @@ namespace Ares {
 			SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 		}
 
+		if (AplicationDescriptor.VideoMode == Ares::VideoMode_::FullScreen) {
+			flags = flags | SDL_FULLSCREEN;
+		}
+
 		flags = flags | SDL_OPENGL;
 		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
 		if (SDL_SetVideoMode(AplicationDescriptor.WindowWidth, AplicationDescriptor.WindowHeight, 32, flags) == 0) {
-			printf("Video mode set failed: %s\n", SDL_GetError());
+			LogPrintError("Video mode set failed: %s", SDL_GetError());
 			exit(1);
 		}
-
 
 		if (AplicationDescriptor.GraphicsApi == Ares::GraphicsApi_::OPENGL)
 			pBaseDriver = new GLDriver(&AplicationDescriptor);
@@ -42,6 +55,10 @@ namespace Ares {
 
 		pBaseDriver->InitDriver();
 		pBaseApp->CreateAssets();
+
+		if(IsDebuggerPresent()){
+			LogPrintRelease("Hi Debbugger!");
+		}
 	}
 
 	void WinFramework::SwitchAPI(GraphicsApi_::E api) {
@@ -83,17 +100,20 @@ namespace Ares {
 
 	void WinFramework::ProcessInput() {
 		SDL_Event       evento;
+		static int		api = (int)AplicationDescriptor.GraphicsApi;
+
 		while (SDL_PollEvent(&evento)) {
 			if (evento.key.keysym.sym == SDLK_q) {
 				m_alive = false;
+				LogPrintInfo("About to close the Program");
 			}
 
-			if (evento.key.keysym.sym == SDLK_o) {	
-				SwitchAPI(Ares::GraphicsApi_::E::OPENGL);
-			}
-
-			if (evento.key.keysym.sym == SDLK_d) {
-				SwitchAPI(Ares::GraphicsApi_::E::D3D11);
+			if (evento.key.keysym.sym == SDLK_a) {
+				api++;
+				if (api >= Ares::GraphicsApi_::E::MAX_GRAPHICS_API) {
+					api = Ares::GraphicsApi_::E::OPENGL;
+				}
+				SwitchAPI((Ares::GraphicsApi_::E)api);
 			}
 		}
 	}

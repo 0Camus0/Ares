@@ -10,13 +10,13 @@ namespace Ares {
 	class GLDriver : public BaseDriver {
 	public:
 		GLDriver(ApplicationDesc *pDesc) : BaseDriver(pDesc) {}
+		~GLDriver() {
+
+		}
 		void	 InitDriver();
-		void	 CreateSurfaces();
-		void	 DestroySurfaces();
 		void	 Update();
 		void	 DestroyDriver();
 		void	 SetWindow(void *window);
-		void	 SetDimensions(int, int);
 		void	 Clear();
 		void	 SwapBuffers();
 	};

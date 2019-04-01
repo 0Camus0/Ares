@@ -143,12 +143,14 @@
     <ClInclude Include="Include\Core\Core.h" />
     <ClInclude Include="Include\Core\Defs.h" />
     <ClInclude Include="Include\Core\WinFramework.h" />
+    <ClInclude Include="Include\Util\Log.h" />
     <ClInclude Include="Include\Video\D3D11\D3D11Driver.h" />
     <ClInclude Include="Include\Video\GL\GLDriver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Core\Core.cpp" />
     <ClCompile Include="Src\Framework\WinFramework.cpp" />
+    <ClCompile Include="Src\Util\Log.cpp" />
     <ClCompile Include="Src\Video\D3D11\D3D11Driver.cpp" />
     <ClCompile Include="Src\Video\GL\GLDriver.cpp" />
   </ItemGroup>

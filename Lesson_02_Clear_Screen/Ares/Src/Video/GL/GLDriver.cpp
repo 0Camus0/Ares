@@ -1,22 +1,19 @@
 #include <Video/GL/GLDriver.h>
+#include <Util/Log.h>
 
 namespace Ares {
 	void	 GLDriver::InitDriver() {
 		GLenum err = glewInit();
 		if (GLEW_OK != err) {
-			printf("Error: %s\n", glewGetErrorString(err));
+			LogPrintError("Error when calling glewInit: %s", glewGetErrorString(err));
 		}
+		else {
+			LogPrintRelease("GL Initialization Successful!");
+		}
+
 		SDL_Surface *sur = SDL_GetVideoSurface();
 		BBWidth = sur->w;
 		BBHeight = sur->h;
-	}
-
-	void	 GLDriver::CreateSurfaces() {
-
-	}
-
-	void	 GLDriver::DestroySurfaces() {
-
 	}
 
 	void	 GLDriver::Update() {
@@ -28,10 +25,6 @@ namespace Ares {
 	}
 
 	void	 GLDriver::SetWindow(void *window) {
-
-	}
-
-	void	 GLDriver::SetDimensions(int, int) {
 
 	}
 
