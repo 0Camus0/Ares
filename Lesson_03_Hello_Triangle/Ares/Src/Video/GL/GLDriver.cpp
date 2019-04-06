@@ -11,12 +11,20 @@ namespace Ares {
 		return 0;
 	}
 
+	void    GLDevice::DestroyResources() {
+
+	}
+
 	void*	GLDeviceContext::GetAPIObject() const {
 		return 0;
 	}
 
 	void**	GLDeviceContext::GetAPIObjectReference() {
 		return 0;
+	}
+
+	void    GLDeviceContext::DestroyResources() {
+
 	}
 
 	void	 GLDriver::InitDriver() {

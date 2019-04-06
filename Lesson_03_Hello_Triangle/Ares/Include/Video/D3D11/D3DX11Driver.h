@@ -20,6 +20,7 @@ namespace Ares {
 		~D3DX11Device(){}
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
+		void    DestroyResources();
 	private:
 		ComPtr<ID3D11Device>            D3D11Device;
 	};
@@ -29,6 +30,7 @@ namespace Ares {
 		~D3DX11DeviceContext() {}
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
+		void    DestroyResources();
 	private:
 		ComPtr<ID3D11DeviceContext>		D3D11DeviceContext;
 	};

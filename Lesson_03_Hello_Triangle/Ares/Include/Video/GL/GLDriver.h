@@ -13,6 +13,7 @@ namespace Ares {
 		~GLDevice() {}
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
+		void    DestroyResources();
 	};
 
 	class GLDeviceContext : public DeviceContext {
@@ -20,6 +21,7 @@ namespace Ares {
 		~GLDeviceContext() {}
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
+		void    DestroyResources();
 	};
 
 	class GLDriver : public BaseDriver {

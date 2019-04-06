@@ -11,12 +11,20 @@ namespace Ares {
 		return (void**)D3D11Device.GetAddressOf();
 	}
 
+	void    D3DX11Device::DestroyResources() {
+
+	}
+
 	void*	D3DX11DeviceContext::GetAPIObject() const {
 		return (void*)D3D11DeviceContext.Get();
 	}
 
 	void**	D3DX11DeviceContext::GetAPIObjectReference() {
 		return (void**)D3D11DeviceContext.GetAddressOf();
+	}
+
+	void    D3DX11DeviceContext::DestroyResources() {
+
 	}
 
 	void	 D3DX11Driver::InitDriver() {	

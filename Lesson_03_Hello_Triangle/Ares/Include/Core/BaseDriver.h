@@ -10,6 +10,7 @@ namespace Ares {
 	public:
 		virtual void*	GetAPIObject() const = 0;
 		virtual void**	GetAPIObjectReference() = 0;
+		virtual void	DestroyResources() = 0;
 		virtual ~IBaseDriverObject() {}
 	};
 
