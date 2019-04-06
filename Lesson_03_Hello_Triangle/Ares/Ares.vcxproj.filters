@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{9f73b584-b620-429e-87e0-b192fb939581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{f9fc10df-c634-4f92-a2fe-b09d590d6928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Framework">
+      <UniqueIdentifier>{536d1a59-085b-4619-a89c-86961f710b01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Video">
+      <UniqueIdentifier>{997aade8-bf1a-458f-a886-757daccaea83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Video\GL">
+      <UniqueIdentifier>{f10fab20-dcea-4966-8006-8c612cd216eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Video\D3D11">
+      <UniqueIdentifier>{c5c054d2-9850-4880-af0a-f9697dc4b086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Video">
+      <UniqueIdentifier>{54478084-3442-4f96-9d62-06f9052b0ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Video\D3D11">
+      <UniqueIdentifier>{12e4e507-b295-4ddd-904b-f151e2737308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Video\GL">
+      <UniqueIdentifier>{fa811b31-5741-4b62-9eb1-afd0541f8733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{0914a9b4-81d4-4460-98f0-1dc332e6b505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{a586570b-2321-4579-9da0-c478b0e99b80}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Core\Core.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\Defs.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\Config.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\WinFramework.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\BaseDriver.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Video\GL\GLDriver.h">
+      <Filter>Header Files\Video\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Util\Log.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Video\D3D11\D3DX11Driver.h">
+      <Filter>Header Files\Video\D3D11</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Core\Core.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\WinFramework.cpp">
+      <Filter>Source Files\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Video\GL\GLDriver.cpp">
+      <Filter>Source Files\Video\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Util\Log.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Video\D3D11\D3DX11Driver.cpp">
+      <Filter>Source Files\Video\D3D11</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
