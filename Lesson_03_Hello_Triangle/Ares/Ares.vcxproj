@@ -152,7 +152,12 @@
     <ClCompile Include="Src\Framework\WinFramework.cpp" />
     <ClCompile Include="Src\Util\Log.cpp" />
     <ClCompile Include="Src\Video\D3D11\D3DX11Driver.cpp" />
+    <ClCompile Include="Src\Video\GL\GLConstantBuffer.cpp" />
+    <ClCompile Include="Src\Video\GL\GLDevice.cpp" />
+    <ClCompile Include="Src\Video\GL\GLDeviceContext.cpp" />
     <ClCompile Include="Src\Video\GL\GLDriver.cpp" />
+    <ClCompile Include="Src\Video\GL\GLIndexBuffer.cpp" />
+    <ClCompile Include="Src\Video\GL\GLVertexBuffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
