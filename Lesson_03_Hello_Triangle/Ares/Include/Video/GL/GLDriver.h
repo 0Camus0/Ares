@@ -30,7 +30,8 @@ namespace Ares {
 		unsigned int API_IBFormat;
 		unsigned int API_Topology;
 		unsigned int Stride;
-		unsigned int Offset;
+		unsigned int VBOffset;
+		unsigned int IBOffset;
 	};
 
 	class GLVertexBuffer : public VertexBuffer {
@@ -43,6 +44,22 @@ namespace Ares {
 		void SetCurrent(DeviceContext*);
 		void SetCurrent(DeviceContext*, const unsigned int stride, const unsigned int offset);
 		~GLVertexBuffer(){}
+
+		unsigned int API_Id;
+		unsigned int API_Usage;
+	};
+
+	class GLIndexBuffer : public IndexBuffer {
+	public:
+		void*	GetAPIObject() const;
+		void**	GetAPIObjectReference();
+		void    DestroyResources();
+		void Create(Device*, BufferDesc, const void* pB = 0);
+		void Reset(DeviceContext*, const void*, unsigned int size);
+		void SetCurrent(DeviceContext*);
+		void SetCurrent(DeviceContext*, const unsigned int offset, BufferFormat_::E format = BufferFormat_::BYTE32);
+
+		~GLIndexBuffer() {}
 
 		unsigned int API_Id;
 		unsigned int API_Usage;

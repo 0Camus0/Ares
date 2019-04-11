@@ -151,7 +151,11 @@
     <ClCompile Include="Src\Core\Core.cpp" />
     <ClCompile Include="Src\Framework\WinFramework.cpp" />
     <ClCompile Include="Src\Util\Log.cpp" />
+    <ClCompile Include="Src\Video\D3D11\D3DX11Device.cpp" />
     <ClCompile Include="Src\Video\D3D11\D3DX11Driver.cpp" />
+    <ClCompile Include="Src\Video\D3D11\D3DX11IndexBuffer.cpp" />
+    <ClCompile Include="Src\Video\D3D11\D3DX11VertexBuffer.cpp" />
+    <ClCompile Include="Src\Video\D3D11\D3DX11DeviceContext.cpp" />
     <ClCompile Include="Src\Video\GL\GLConstantBuffer.cpp" />
     <ClCompile Include="Src\Video\GL\GLDevice.cpp" />
     <ClCompile Include="Src\Video\GL\GLDeviceContext.cpp" />

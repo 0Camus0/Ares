@@ -22,7 +22,7 @@ namespace Ares {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	void GLVertexBuffer::Create(Device *pDevice, BufferDesc desc, const void* pB = 0) {
+	void GLVertexBuffer::Create(Device *pDevice, BufferDesc desc, const void* pB) {
 		Desc.ByteWidth = desc.ByteWidth;
 		Desc.Usage = desc.Usage;
 		switch (Desc.Usage) {
@@ -74,6 +74,6 @@ namespace Ares {
 	void GLVertexBuffer::SetCurrent(DeviceContext* pDeviceContext, const unsigned int stride, const unsigned int offset) {
 		pDeviceContext->pVB = (VertexBuffer *)this;
 		GetGLDeviceContext(pDeviceContext)->Stride = stride;
-		GetGLDeviceContext(pDeviceContext)->Offset = offset;
+		GetGLDeviceContext(pDeviceContext)->VBOffset = offset;
 	}
 }

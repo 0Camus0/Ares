@@ -100,5 +100,17 @@
     <ClCompile Include="Src\Video\GL\GLDevice.cpp">
       <Filter>Source Files\Video\GL</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Video\D3D11\D3DX11Device.cpp">
+      <Filter>Source Files\Video\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Video\D3D11\D3DX11IndexBuffer.cpp">
+      <Filter>Source Files\Video\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Video\D3D11\D3DX11VertexBuffer.cpp">
+      <Filter>Source Files\Video\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Video\D3D11\D3DX11DeviceContext.cpp">
+      <Filter>Source Files\Video\D3D11</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

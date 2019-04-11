@@ -16,23 +16,43 @@ using namespace Microsoft::WRL;
 namespace Ares {
 
 	class D3DX11Device : public Device {
-	public:
-		~D3DX11Device(){}
+	public:		
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
 		void    DestroyResources();
-	private:
-		ComPtr<ID3D11Device>            D3D11Device;
+
+		~D3DX11Device() {}
+
+		ComPtr<ID3D11Device>            pD3D11Device;
 	};
 
 	class D3DX11DeviceContext : public DeviceContext {
-	public:
-		~D3DX11DeviceContext() {}
+	public:		
 		void*	GetAPIObject() const;
 		void**	GetAPIObjectReference();
 		void    DestroyResources();
-	private:
-		ComPtr<ID3D11DeviceContext>		D3D11DeviceContext;
+
+		void SetTopology(MeshTopology::E);
+		void DrawIndexed(unsigned int VertexCount, unsigned int StartIndex, unsigned int StartVertex);
+
+		~D3DX11DeviceContext() {}
+
+		ComPtr<ID3D11DeviceContext>		pD3D11DeviceContext;
+	};
+
+	class D3DX11VertexBuffer : public VertexBuffer {
+	public:
+		void*	GetAPIObject() const;
+		void**	GetAPIObjectReference();
+		void    DestroyResources();
+		void Create(Device*, BufferDesc, const void* pB = 0);
+		void Reset(DeviceContext*, const void*, unsigned int size);
+		void SetCurrent(DeviceContext*);
+		void SetCurrent(DeviceContext*, const unsigned int stride, const unsigned int offset);
+
+		~D3DX11VertexBuffer() {}
+
+		ComPtr<ID3D11Buffer> pD3D11Buffer;
 	};
 
 	class D3DX11Driver : public BaseDriver {

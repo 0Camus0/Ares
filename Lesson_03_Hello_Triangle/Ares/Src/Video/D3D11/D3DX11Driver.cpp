@@ -1,32 +1,9 @@
 #include <Video/D3D11/D3DX11Driver.h>
 #include <Util/Log.h>
 
+#include <d3d11sdklayers.h>
+
 namespace Ares {
-	
-	void*	D3DX11Device::GetAPIObject() const {
-		return (void*)D3D11Device.Get();
-	}
-
-	void**	D3DX11Device::GetAPIObjectReference(){
-		return (void**)D3D11Device.GetAddressOf();
-	}
-
-	void    D3DX11Device::DestroyResources() {
-
-	}
-
-	void*	D3DX11DeviceContext::GetAPIObject() const {
-		return (void*)D3D11DeviceContext.Get();
-	}
-
-	void**	D3DX11DeviceContext::GetAPIObjectReference() {
-		return (void**)D3D11DeviceContext.GetAddressOf();
-	}
-
-	void    D3DX11DeviceContext::DestroyResources() {
-
-	}
-
 	void	 D3DX11Driver::InitDriver() {	
 		D3D11_DEPTH_STENCIL_VIEW_DESC DescStencilView;
 		ComPtr<ID3D11Texture2D>		  pBackBuffer;
@@ -51,16 +28,16 @@ namespace Ares {
 		
 		ZeroMemory(&DescSwapChain, sizeof(DXGI_SWAP_CHAIN_DESC));
 		DescSwapChain.BufferDesc = DescBackBuffer;
-		DescSwapChain.BufferCount = 1;
+		DescSwapChain.BufferCount = 2;
 		DescSwapChain.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 		DescSwapChain.SampleDesc.Count = 1;
 		DescSwapChain.SampleDesc.Quality = 0;
 		DescSwapChain.OutputWindow = GetActiveWindow();
 		DescSwapChain.Windowed = (pAppDesc->VideoMode != Ares::VideoMode_::FullScreen);
-		DescSwapChain.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+		DescSwapChain.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 
 		hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL,
-#if DEBUG_DRIVER
+#if DEBUG_D3D11_DRIVER
 			D3D11_CREATE_DEVICE_DEBUG,	
 #else
 			0,
@@ -145,15 +122,6 @@ namespace Ares {
 	}
 
 	void	 D3DX11Driver::DestroyDriver() {
-		ID3D11DeviceContext          *pD3D11DeviceContext = reinterpret_cast<ID3D11DeviceContext*>(pDeviceContext->GetAPIObject());
-
-		pD3D11DeviceContext->OMSetRenderTargets(0, 0, 0);
-		pD3D11DeviceContext->Flush();
-		pD3D11DeviceContext = NULL;
-
-		D3D11RenderTargetView.Reset();
-		D3D11DepthStencilTargetView.Reset();
-
 		delete pDevice;
 		pDevice = NULL;
 		delete pDeviceContext;
