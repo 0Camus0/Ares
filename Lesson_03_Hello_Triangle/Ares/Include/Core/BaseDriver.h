@@ -53,7 +53,7 @@ namespace Ares {
 
 	class IndexBuffer : public IBuffer {
 	public:
-		virtual void SetCurrent(DeviceContext*, const unsigned int offset, BufferFormat_::E format = BufferFormat_::BYTE32) = 0;
+		virtual void SetCurrent(DeviceContext*, const unsigned int offset) = 0;
 		~IndexBuffer() {}
 	};
 

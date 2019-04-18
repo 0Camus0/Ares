@@ -17,6 +17,7 @@ namespace Ares {
 		if (Desc.State == BufferState_::E::BUFFER_ALLOCATED) {
 			delete[] pBuffer;
 			pBuffer = 0;
+			Desc.State = BufferState_::E::BUFFER_NOT_ALLOCATED;
 		}
 		glDeleteBuffers(1, &API_Id);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);

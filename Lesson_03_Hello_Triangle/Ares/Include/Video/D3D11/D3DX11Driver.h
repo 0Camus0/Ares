@@ -53,6 +53,24 @@ namespace Ares {
 		~D3DX11VertexBuffer() {}
 
 		ComPtr<ID3D11Buffer> pD3D11Buffer;
+		D3D11_BUFFER_DESC	 API_Desc;
+	};
+
+	class D3DX11IndexBuffer : public IndexBuffer {
+	public:
+		void*	GetAPIObject() const;
+		void**	GetAPIObjectReference();
+		void    DestroyResources();
+		void Create(Device*, BufferDesc, const void* pB = 0);
+		void Reset(DeviceContext*, const void*, unsigned int size);
+		void SetCurrent(DeviceContext*);
+		void SetCurrent(DeviceContext*, const unsigned int offset);
+
+		~D3DX11IndexBuffer() {}
+
+		ComPtr<ID3D11Buffer> pD3D11Buffer;
+		D3D11_BUFFER_DESC	 API_Desc;
+		DXGI_FORMAT			 API_Format;
 	};
 
 	class D3DX11Driver : public BaseDriver {
